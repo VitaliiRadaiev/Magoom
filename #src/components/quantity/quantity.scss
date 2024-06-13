@@ -1,0 +1,38 @@
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    &__btn {
+        flex: 0 0 auto;
+        font-size: 1.3rem;
+        cursor: pointer;
+        display: flex;
+
+        @media (min-width: $mq-lg) {
+            font-size: $text-3;
+        }
+
+        &.disabled {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+    }
+
+    &__value {
+        background-color: transparent;
+        border-radius: 0;
+        border: none;
+        outline: none;
+        width: 1.9rem;
+        font-size: $text-1;
+        text-align: center;
+        pointer-events: none;
+        padding: 0;
+
+        @media (min-width: $mq-lg) {
+            font-size: $text-3;
+        }
+    }
+}

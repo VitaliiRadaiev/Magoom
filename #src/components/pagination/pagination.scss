@@ -1,0 +1,58 @@
+.pagination {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    @media (min-width: $mq-lg) {
+        gap: 3rem;
+    }
+
+    &__fraction {
+        font-weight: 700;
+    }
+
+    &__btn {
+        position: absolute;
+        font-size: 2.1rem;
+        color: currentColor;
+        padding: 0.5rem;
+        display: inline-flex;
+        transition: background-color $transition;
+        bottom: -0.7rem;
+
+        @media (min-width: $mq-lg) {
+            bottom: auto;
+            top: -0.7rem;
+        }
+    
+        @media #{$mouse-device} {
+            &:hover {
+                background-color: $bgHover;
+            }
+        }
+
+        &.disabled {
+            pointer-events: none;
+            color: $themeColorFourth;
+        }
+
+        &.left {
+            left: -0.5rem;
+        }
+        &.right {
+            right: -0.5rem;
+        }
+    }
+}
+.button-link {
+}
+.left {
+}
+.icon-arrow-left {
+}
+.right {
+}
+.icon-arrow-right {
+}

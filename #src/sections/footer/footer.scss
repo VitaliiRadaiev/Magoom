@@ -1,0 +1,121 @@
+.footer {
+
+    &__inner {
+        background-color: var(--black);
+        color: var(--white);
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+        border-radius: 2.4rem 2.4rem 0 0;
+
+        @media (min-width: $mq-lg) {
+            border-radius: 0;
+        }
+
+        & a {
+            color: inherit;
+        }
+    }
+
+    &__row-1 {
+    }
+
+    &__nav-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem 2rem;
+        margin: 0 auto;
+        max-width: 31.2rem;
+    }
+
+    &__nav-col {
+    }
+
+    &__nav-col-1 {
+        grid-column:  span 2;
+    }
+
+    &__nav-col-2 {
+    }
+
+    &__nav-col-3 {
+
+        & .social  {
+            margin-top: 2.4rem;
+        }
+    }
+
+    &__nav-title {
+        font-size: 1.6rem;
+        line-height: 1.37em;
+        font-weight: 700;
+    }
+
+    &__nav-list {
+        padding-left: 0;
+        margin: 1.6rem 0 0;
+        display: grid;
+        gap: 0.6rem 2rem;
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 1.57em;
+    
+    }
+
+
+
+    &__nav-list--cols-2 {
+        grid-template-columns: 1fr 1fr;
+
+        & .row-span-2 {
+            grid-row: span 2;
+            line-height: 1.74em;
+        }
+    }
+
+
+
+    &__logo {
+        margin-top: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & img {
+            width: 20.8rem;
+            height: auto;
+            display: block;
+        }
+    }
+
+    &__row-2 {
+        margin-top: 4rem;
+    }
+
+    &__copy {
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.2rem;
+        line-height: 1.5em;
+        color: var(--grey-2);
+    }
+}
+
+.social {
+    padding-left: 0;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+
+    & > li {
+        flex: 0 0 auto;
+    }
+    & img, & svg {
+        height: 2.4rem;
+        width: auto;
+        display: block;
+    }
+}
+.img-svg {
+}

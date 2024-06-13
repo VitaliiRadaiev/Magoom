@@ -1,0 +1,134 @@
+.home-services {
+    position: relative;
+    z-index: 2;
+
+    @media (min-width: 0px) and (max-width: 991.98px) {
+        &:before {
+            position: absolute;
+            content: '';
+            left: 0;
+            bottom: calc(100% - 1px);
+            width: 100%;
+            height: 2.4rem;
+            border-radius: 2.4rem 2.4rem 0 0;
+            background-color: #fff;
+        }
+
+        & .content-two-columns__text-content {
+            padding-top: 5.6rem;
+        }
+    }
+
+    @media (min-width: $mq-lg) {
+        margin-top: 0;
+    }
+    &__row-1 {
+    }
+
+    &__row-2 {
+        @media (min-width: $mq-lg) {
+            position: relative;
+            padding-top: 12rem;
+
+            & .services {
+                align-items: flex-start;
+            }
+
+            & .services__col-2 {
+                //transform: translateY(-18.6rem);
+            }
+            // & .services__col-3 {
+            //     transform: translateY(18.6rem);
+            // }
+        }
+    }
+
+    &__img {
+        & img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        @media (min-width: $mq-lg) {
+            height: 100%;
+            width: 100%;
+            & img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    &__title {
+        & span {
+            &:last-child {
+                font-style: italic;
+            }
+        }
+    }
+
+    &__title-mob {
+        display: flex;
+        flex-direction: column;
+        @media (min-width: $mq-lg) {
+            display: none;
+        }
+
+        & .row-2 {
+            margin-left: 11.6rem;
+        }
+    }
+
+    &__title-desk {
+        display: none;
+        flex-direction: column;
+
+        @media (min-width: $mq-lg) {
+            display: flex;
+        }
+
+        & .row-1 {
+            margin-left: 6rem;
+        }
+        & .row-2 {
+            margin-left: 22.6rem;
+        }
+    }
+
+    &__subtile {
+        @media (min-width: $mq-lg) {
+            text-transform: uppercase;
+        }
+    }
+
+    &__btn {
+        display: none;
+
+        @media (min-width: $mq-lg) {
+            display: block;
+        }
+    }
+
+    &__btn-mob {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 40rem;
+        margin-top: 4rem;
+
+        @media (min-width: $mq-lg) {
+            display: none;
+        }
+
+        & .btn-default {
+            width: 100%;
+        }
+    }
+
+    & .content-two-columns__text-content {
+        padding-bottom: 4rem;
+        @media (min-width: $mq-lg) {
+            padding-bottom: 18.4rem;
+        }
+    }
+}

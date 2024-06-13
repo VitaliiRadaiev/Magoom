@@ -1,0 +1,96 @@
+.services {
+    display: grid;
+    gap: 2.4rem;
+
+    @media (min-width: 0px) and (max-width: 991.98px) {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 50.8rem;
+    }
+
+    @media (min-width: $mq-lg) {
+        gap: 3.2rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+    }
+
+    &__col {
+        display: grid;
+        gap: 2.4rem;
+        @media (max-width: 991.98px) {
+            transform: translate(0) !important;
+        }
+
+        @media (min-width: $mq-lg) {
+            gap: 3.2rem;
+        }
+    }
+
+    &__col-1 {
+        
+    }
+
+    &__col-2 {
+    }
+
+    &__col-3 {
+    }
+}
+
+.services-card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    min-height: 32.8rem;
+    gap: 1.6rem;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+
+    @media (min-width: $mq-lg) {
+        text-align: left;
+        justify-content: initial;
+    }
+
+    &__icon {
+        height: 4.8rem;
+        display: flex;
+        justify-content: center;
+
+        @media (min-width: $mq-lg) {
+            order: 1;
+            margin-top: 1.4rem;
+            height: 18rem;
+            opacity: 0.1;
+        }
+
+        & img, & svg {
+            height: 100%;
+            width: auto;
+            display: block;
+        }
+    }
+
+    &__title {
+        margin-top: 0.8rem;
+    
+        @media (min-width: $mq-lg) {
+            margin-top: 0;
+        }
+    }
+
+    &__text {
+
+    }
+
+    &__btn {
+        margin-top: auto;
+
+        @media (min-width: $mq-lg) {
+            order: 1;
+            align-self: flex-end;
+            margin-top: -4rem;
+        }
+    }
+}
+

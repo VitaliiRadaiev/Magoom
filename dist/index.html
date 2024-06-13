@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magoom</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wdth,wght@0,62.5,800;1,62.5,800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- <script>
+        let element = document.querySelector('html');
+        if (element) {
+            const setFontSize = () => {
+                let value = 10 / 1440 * element.clientWidth;
+                element.style.fontSize = value + 'px';
+            }
+
+            setFontSize();
+
+            window.addEventListener('resize', setFontSize);
+        }
+    </script> -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-loaded .page-loader {
+            display: none;
+        }
+
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #c1f5f4;
+            z-index: 100;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            color: #9394f8;
+        }
+
+        .lds-roller,
+        .lds-roller div,
+        .lds-roller div:after {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .lds-roller {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .lds-roller div {
+            -webkit-animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            -webkit-transform-origin: 40px 40px;
+            -ms-transform-origin: 40px 40px;
+            transform-origin: 40px 40px;
+        }
+
+        .lds-roller div:after {
+            content: " ";
+            display: block;
+            position: absolute;
+            width: 7.2px;
+            height: 7.2px;
+            border-radius: 50%;
+            background: currentColor;
+            margin: -3.6px 0 0 -3.6px;
+        }
+
+        .lds-roller div:nth-child(1) {
+            -webkit-animation-delay: -0.036s;
+            animation-delay: -0.036s;
+        }
+
+        .lds-roller div:nth-child(1):after {
+            top: 62.62742px;
+            left: 62.62742px;
+        }
+
+        .lds-roller div:nth-child(2) {
+            -webkit-animation-delay: -0.072s;
+            animation-delay: -0.072s;
+        }
+
+        .lds-roller div:nth-child(2):after {
+            top: 67.71281px;
+            left: 56px;
+        }
+
+        .lds-roller div:nth-child(3) {
+            -webkit-animation-delay: -0.108s;
+            animation-delay: -0.108s;
+        }
+
+        .lds-roller div:nth-child(3):after {
+            top: 70.90963px;
+            left: 48.28221px;
+        }
+
+        .lds-roller div:nth-child(4) {
+            -webkit-animation-delay: -0.144s;
+            animation-delay: -0.144s;
+        }
+
+        .lds-roller div:nth-child(4):after {
+            top: 72px;
+            left: 40px;
+        }
+
+        .lds-roller div:nth-child(5) {
+            -webkit-animation-delay: -0.18s;
+            animation-delay: -0.18s;
+        }
+
+        .lds-roller div:nth-child(5):after {
+            top: 70.90963px;
+            left: 31.71779px;
+        }
+
+        .lds-roller div:nth-child(6) {
+            -webkit-animation-delay: -0.216s;
+            animation-delay: -0.216s;
+        }
+
+        .lds-roller div:nth-child(6):after {
+            top: 67.71281px;
+            left: 24px;
+        }
+
+        .lds-roller div:nth-child(7) {
+            -webkit-animation-delay: -0.252s;
+            animation-delay: -0.252s;
+        }
+
+        .lds-roller div:nth-child(7):after {
+            top: 62.62742px;
+            left: 17.37258px;
+        }
+
+        .lds-roller div:nth-child(8) {
+            -webkit-animation-delay: -0.288s;
+            animation-delay: -0.288s;
+        }
+
+        .lds-roller div:nth-child(8):after {
+            top: 56px;
+            left: 12.28719px;
+        }
+
+        @-webkit-keyframes lds-roller {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes lds-roller {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    
+<script src="js/vendors.js"></script>
+<script src="js/app.js"></script>
+</head>
+
+<body>
+	<div class="page-loader">
+    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+</div>
+
+	<header class="header header--green" data-header data-popup="lock-padding" data-css-variable-height="--header-height">
+    <div class="header__inner">
+        <div class="container header__body">
+            <div class="header__left">
+                <a href="#" class="header__logo">
+                    <img src="img/logo/logo.svg" alt="">
+                </a>
+            </div>
+            <div class="header__right">
+                <ul class="header__nav">
+                    <li>
+                        <a href="#" class="header__nav-item">About us</a>
+                    </li>
+                    <li class="header__nav-has-drop-down">
+                        <a href="#" class="header__nav-item chevron-right">Services</a>
+
+                        <div class="header__drop-down header-drop-down">
+                            <div class="header-drop-down__banner">
+                                <div class="header-drop-down__banner-bg ibg">
+                                    <img src="img/photo/header-banner.jpg" alt="">
+                                </div>
+                                <div class="header-drop-down__banner-body">
+                                    <div class="header-drop-down__banner-title">
+                                        Not sure where to start?
+                                    </div>
+                                    <div class="header-drop-down__banner-btn">
+                                        <a href="#" class="btn-default btn-default--primary">
+                                            Contact us
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="header-drop-down__list">
+                                <li>
+                                    <div class="header-drop-down__list-icon">
+                                        <img src="img/photo/header-drop-down-icon-1.svg" alt="">
+                                    </div>
+                                    <div class="header-drop-down__list-content">
+                                        <h4 class="header-drop-down__list-title">
+                                            SEO Consulting
+                                        </h4>
+                                        <div class="header-drop-down__list-text last-no-margin">
+                                            We boost our clients' websites by making them more visible on search
+                                            engines, and we don't just stop there.
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="header-drop-down__list-icon">
+                                        <img src="img/photo/header-drop-down-icon-2.svg" alt="">
+                                    </div>
+                                    <div class="header-drop-down__list-content">
+                                        <h4 class="header-drop-down__list-title">
+                                            content Marketing
+                                        </h4>
+                                        <div class="header-drop-down__list-text last-no-margin">
+                                            We boost our clients' websites by making them more visible on search
+                                            engines, and we don't just stop there.
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="header-drop-down__list-icon">
+                                        <img src="img/photo/header-drop-down-icon-3.svg" alt="">
+                                    </div>
+                                    <div class="header-drop-down__list-content">
+                                        <h4 class="header-drop-down__list-title">
+                                            PPC Consulting
+                                        </h4>
+                                        <div class="header-drop-down__list-text last-no-margin">
+                                            We boost our clients' websites by making them more visible on search
+                                            engines, and we don't just stop there.
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="header-drop-down__list-icon">
+                                        <img src="img/photo/header-drop-down-icon-4.svg" alt="">
+                                    </div>
+                                    <div class="header-drop-down__list-content">
+                                        <h4 class="header-drop-down__list-title">
+                                            website migration
+                                        </h4>
+                                        <div class="header-drop-down__list-text last-no-margin">
+                                            We boost our clients' websites by making them more visible on search
+                                            engines, and we don't just stop there.
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="header-drop-down__list-icon">
+                                        <img src="img/photo/header-drop-down-icon-5.svg" alt="">
+                                    </div>
+                                    <div class="header-drop-down__list-content">
+                                        <h4 class="header-drop-down__list-title">
+                                            Web development
+                                        </h4>
+                                        <div class="header-drop-down__list-text last-no-margin">
+                                            We boost our clients' websites by making them more visible on search
+                                            engines, and we don't just stop there.
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="header-drop-down__list-icon">
+                                        <img src="img/photo/header-drop-down-icon-6.svg" alt="">
+                                    </div>
+                                    <div class="header-drop-down__list-content">
+                                        <h4 class="header-drop-down__list-title">
+                                            Online reputation management
+                                        </h4>
+                                        <div class="header-drop-down__list-text last-no-margin">
+                                            We boost our clients' websites by making them more visible on search
+                                            engines, and we don't just stop there.
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="header-drop-down__list-icon">
+                                        <img src="img/photo/header-drop-down-icon-7.svg" alt="">
+                                    </div>
+                                    <div class="header-drop-down__list-content">
+                                        <h4 class="header-drop-down__list-title">
+                                            UX & CRO
+                                        </h4>
+                                        <div class="header-drop-down__list-text last-no-margin">
+                                            We boost our clients' websites by making them more visible on search
+                                            engines, and we don't just stop there.
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="header-drop-down__list-icon">
+                                        <img src="img/photo/header-drop-down-icon-8.svg" alt="">
+                                    </div>
+                                    <div class="header-drop-down__list-content">
+                                        <h4 class="header-drop-down__list-title">
+                                            digital pR
+                                        </h4>
+                                        <div class="header-drop-down__list-text last-no-margin">
+                                            We boost our clients' websites by making them more visible on search
+                                            engines, and we don't just stop there.
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="header-drop-down__list-icon">
+                                        <img src="img/photo/header-drop-down-icon-9.svg" alt="">
+                                    </div>
+                                    <div class="header-drop-down__list-content">
+                                        <h4 class="header-drop-down__list-title">
+                                            Sale software
+                                        </h4>
+                                        <div class="header-drop-down__list-text last-no-margin">
+                                            We boost our clients' websites by making them more visible on search
+                                            engines, and we don't just stop there.
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="header__nav-item">Case studies</a>
+                    </li>
+                </ul>
+                <a href="#" class="header__btn-book btn-default btn-default--primary">
+                    Book a call
+                </a>
+
+                <button type="button" class="header__burger" data-action="toggle-show-mobile-menu">
+                    <img class="i-burger" src="img/icons/burger.svg" alt="">
+                    <img class="i-x-mark" src="img/icons/x-mark.svg" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+    <div data-mobile-menu class="mobile-menu">
+        <div class="mobile-menu__inner">
+            <div class="mobile-menu__scroll-container">
+                <div class="mobile-menu__body">
+                    <ul data-spoiler class="mobile-menu__list">
+                        <li>
+                            <a href="#" class="mobile-menu__list-item">
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="mobile-menu__list-item" data-spoiler-trigger>
+                                Services
+                            </a>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            SEO consulting
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            WEB development
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            UX & CRO
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Sales software
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Content marketing
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            PPC consulting
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Website migration
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Online Reputation Management
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Digital PR
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" class="mobile-menu__list-item">
+                                Case Studies
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mobile-menu__btn">
+                <a href="#" class="btn-default btn-default--secondary">
+                    Book a call
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</header>
+
+	<main class="_page home-page">
+		<section class="home-intro" data-home-intro >
+    <div class="home-intro__inner">
+        <div class="container">
+            <div class="home-intro__row-1">
+                <div class="home-intro__title home-intro__title--desk">
+                    <img class="title-icon-1" src="img/icons/decor-icon-1.svg" alt="">
+                    <img class="title-icon-2" src="img/icons/decor-icon-3.svg" alt="">
+                    <img class="title-icon-3" src="img/icons/decor-icon-2.svg" alt="">
+    
+                    <span class="row-1">rooting for</span>
+                    <span class="row-2">your business</span>
+                    <span class="row-3">success.</span>
+                </div>
+                <div class="home-intro__title home-intro__title--mob">
+                    <img class="title-icon-1" src="img/icons/decor-icon-1.svg" alt="">
+                    <img class="title-icon-2" src="img/icons/decor-icon-3.svg" alt="">
+                    <img class="title-icon-3" src="img/icons/decor-icon-2.svg" alt="">
+                    
+                    <span class="row-1">
+                        rooting
+                    </span>
+                    <span class="row-2">
+                        for your
+                    </span>
+                    <span class="row-3">
+                        business
+                    </span>
+                    <span class="row-4">
+                        success.
+                    </span>
+                </div>
+            </div>
+            <div class="home-intro__row-2">
+                <div class="home-intro__carousel">
+                    <div class="home-intro__carousel-head">
+                        <h2 class="title-2-subtitle">
+                            Synergy in action
+                        </h2>
+                        <div class="home-intro__carousel-head-text last-no-margin text-content">
+                            <p>
+                                Hooray to our partners in crime
+                            </p>
+                        </div>
+                    </div>
+                    <div class="home-intro__carousel-logos" data-slider="carousel-logos">
+                        <div class="marquee">
+                            <div class="marquee-content">
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="img/logo/home-intro-logo-1.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="img/logo/home-intro-logo-2.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="img/logo/home-intro-logo-3.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="img/logo/home-intro-logo-4.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="img/logo/home-intro-logo-5.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="img/logo/home-intro-logo-6.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="marquee-content">
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="img/logo/home-intro-logo-1.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="img/logo/home-intro-logo-2.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="img/logo/home-intro-logo-3.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="img/logo/home-intro-logo-4.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="img/logo/home-intro-logo-5.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="img/logo/home-intro-logo-6.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="home-intro__btn-mob">
+                <a href="#" class="btn-default btn-default--secondary">
+                    Book a call
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+		<section class="home-services">
+			<div class="home-services__row-1">
+				<div
+					class="content-two-columns content-two-columns--hide-media-on-mob">
+					<div class="container">
+						<div class="content-two-columns__body">
+							<div class="content-two-columns__media">
+								<div class="content-two-columns__media-inner">
+									<div class="home-services__img">
+										<img src="img/photo/advantages-img.jpg" alt="">
+									</div>
+								</div>
+							</div>
+							<div class="content-two-columns__text-content">
+								<div class="content-two-columns__text-content-title-slot">
+									<div class="home-services__title title-2">
+										<div class="home-services__title-mob">
+											<span class="row-1">
+												tailored digital
+											</span>
+											<span class="row-2">
+												strategies
+											</span>
+										</div>
+										<div class="home-services__title-desk">
+											<span class="row-1">
+												tailoreD
+											</span>
+											<span class="row-2">
+												digital
+											</span>
+											<span class="row-3">
+												strategies,
+											</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="content-two-columns__text-content-sub-title-slot">
+									<div class="home-services__subtile title-2-subtitle">
+										Unmatched brand impact
+									</div>
+								</div>
+
+								<div class="content-two-columns__text-content-text-slot">
+									<div class="text-content last-no-margin">
+										<p>
+											Magoom is a digital marketing agency with a small-scale, big impact. We're
+											all about
+											creating bespoke digital efforts towards your business that spotlight your
+											unique brand,
+											ensuring quality over quantity every time.
+										</p>
+									</div>
+								</div>
+
+								<div class="home-services__btn content-two-columns__text-content-btn-slot">
+									<a href="#" class="btn-default btn-default--primary">
+										View all services
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="home-services__row-2">
+				<div class="container">
+					<div class="services">
+						<div class="services__col services__col-1" data-speed="1">
+							<div class="services-card bg-purple" >
+								<div class="services-card__icon">
+									<img src="img/photo/header-drop-down-icon-1.svg" alt="">
+								</div>
+								<div class="services-card__title title-2-subtitle">
+									SEO consulting
+								</div>
+								<div class="services-card__text text-content last-no-margin">
+									<p>
+										Boost your website by making it more visible on search engines, and don't just
+										stop there.
+									</p>
+								</div>
+								<a href="#" class="services-card__btn btn-default btn-default--secondary">
+									Learn more
+								</a>
+							</div>
+						</div>
+						<div class="services__col services__col-2" data-speed="4">
+							<div class="services-card bg-pink" >
+								<div class="services-card__icon">
+									<img src="img/photo/header-drop-down-icon-3.svg" alt="">
+								</div>
+								<div class="services-card__title title-2-subtitle">
+									PPC consulting
+								</div>
+								<div class="services-card__text text-content last-no-margin">
+									<p>
+										Magoom is a digital marketing agency with a small-scale, big impact. We're all
+										about creating bespoke digital efforts.
+									</p>
+								</div>
+								<a href="#" class="services-card__btn btn-default btn-default--secondary">
+									Learn more
+								</a>
+							</div>
+							<div class="services-card bg-blue">
+								<div class="services-card__icon">
+									<img src="img/photo/header-drop-down-icon-7.svg" alt="">
+								</div>
+								<div class="services-card__title title-2-subtitle">
+									UX & CRO
+								</div>
+								<div class="services-card__text text-content last-no-margin">
+									<p>
+										Magoom is a digital marketing agency with a small-scale, big impact. We're all
+										about creating bespoke digital efforts.
+									</p>
+								</div>
+								<a href="#" class="services-card__btn btn-default btn-default--secondary">
+									Learn more
+								</a>
+							</div>
+						</div>
+						<div class="services__col services__col-3" data-speed="1">
+							<div class="services-card bg-blue-light" >
+								<div class="services-card__icon">
+									<img src="img/photo/header-drop-down-icon-5.svg" alt="">
+								</div>
+								<div class="services-card__title title-2-subtitle">
+									WEB development
+								</div>
+								<div class="services-card__text text-content last-no-margin">
+									<p>
+										Magoom is a digital marketing agency with a small-scale, big impact. We're all
+										about creating bespoke digital efforts.
+									</p>
+								</div>
+								<a href="#" class="services-card__btn btn-default btn-default--secondary">
+									Learn more
+								</a>
+							</div>
+							<div class="services-card bg-yellow">
+								<div class="services-card__icon">
+									<img src="img/photo/header-drop-down-icon-9.svg" alt="">
+								</div>
+								<div class="services-card__title title-2-subtitle">
+									Sales software (CRM)
+								</div>
+								<div class="services-card__text text-content last-no-margin">
+									<p>
+										Magoom is a digital marketing agency with a small-scale, big impact. We're all
+										about creating bespoke digital efforts.
+									</p>
+								</div>
+								<a href="#" class="services-card__btn btn-default btn-default--secondary">
+									Learn more
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="home-services__btn-mob">
+						<a href="#" class="btn-default btn-default--primary">
+							View all services
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="home-image-banner image-banner">
+			<div class="image-banner__inner" style="background-image: url(img/photo/image-banner.jpg);"></div>
+		</section>
+
+		<section class="home-reviews reviews bg-blue-light">
+			<div class="container">
+				<h2 class="reviews__title title-2">
+					Our client’s
+					<i>buzz</i>
+				</h2>
+				<div class="reviews__text text-content last-no-margin">
+					<p>
+						We work across diverse sectors and budgets. <br> See some honest words from our clients below
+					</p>
+				</div>
+
+				<div class="reviews__carousel" data-slider="reviews-carousel">
+					<div class="swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="review-card bg-purple">
+									<div class="review-card__logo">
+										<img src="img/logo/review-logo-1x-1.png" srcset="img/logo/review-logo-1.png"
+											alt="">
+									</div>
+									<div class="review-card__author">
+										<div class="review-card__author-avatar">
+											<img src="img/photo/review-avatar-1.png" alt="">
+										</div>
+										<div class="review-card__author-text">
+											<div class="review-card__author-name title-3">
+												Arūnas Eitutis
+											</div>
+											<div class="review-card__author-position">
+												CEO at <a href="#">Frontu</a>
+											</div>
+										</div>
+									</div>
+									<div class="review-card__text text-content last-no-margin">
+										<p>
+											“Magoom transformed our business approach with data-driven strategies,
+											providing insights into how we connect with our clients - truly
+											straightforward”
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="review-card bg-blue">
+									<div class="review-card__logo">
+										<img src="img/logo/review-logo-1x-2.png" srcset="img/logo/review-logo-2.png 2x"
+											alt="">
+									</div>
+									<div class="review-card__author">
+										<div class="review-card__author-avatar">
+											<img src="img/photo/review-avatar-2.png" alt="">
+										</div>
+										<div class="review-card__author-text">
+											<div class="review-card__author-name title-3">
+												Rasa Sosnovskytė
+											</div>
+											<div class="review-card__author-position">
+												CEO at Growth Bite
+											</div>
+										</div>
+									</div>
+									<div class="review-card__text text-content last-no-margin">
+										<p>
+											“From start to finish, working with Vytautas and his team on various
+											projects has been a seamless experience, thanks to their commitment to true
+											productive partnership.”
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="review-card bg-yellow">
+									<div class="review-card__logo">
+										<img src="img/logo/review-logo-1x-3.png" srcset="img/logo/review-logo-3.png 2x"
+											alt="">
+									</div>
+									<div class="review-card__author">
+										<div class="review-card__author-avatar">
+											<img src="img/photo/review-avatar-3.png" alt="">
+										</div>
+										<div class="review-card__author-text">
+											<div class="review-card__author-name title-3">
+												Jonas Bartašius
+											</div>
+											<div class="review-card__author-position">
+												C-founder at DOYO STUDIO
+											</div>
+										</div>
+									</div>
+									<div class="review-card__text text-content last-no-margin">
+										<p>
+											“Magoom's team has seamlessly integrated with ours. Their strategic SEO
+											services have exceeded our expectations, adding significant value to our
+											various projects.”
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="review-card bg-green">
+									<div class="review-card__logo">
+										<img src="img/logo/review-logo-1x-4.png" srcset="img/logo/review-logo-4.png 2x"
+											alt="">
+									</div>
+									<div class="review-card__author">
+										<div class="review-card__author-avatar">
+											<img src="img/photo/review-avatar-4.png" alt="">
+										</div>
+										<div class="review-card__author-text">
+											<div class="review-card__author-name title-3">
+												Vidas Vasiliauskas
+											</div>
+											<div class="review-card__author-position">
+												CEO at Teamhood
+											</div>
+										</div>
+									</div>
+									<div class="review-card__text text-content last-no-margin">
+										<p>
+											“Every consultation with Magoom has left us with actionable insights and
+											strategies that have propelled our content to new heights, truly top-notch
+											service.”
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="reviews__carousel-nav-buttons carousel-buttons">
+						<button class="carousel-btn btn-left icon-arrow-left"></button>
+						<button class="carousel-btn btn-right icon-arrow-right"></button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="home-cta cta">
+    <div class="content-two-columns">
+        <div class="container cta__inner">
+            <div class="content-two-columns__body">
+                <div class="content-two-columns__media">
+                    <div class="content-two-columns__media-inner">
+                        <div class="cta__img">
+                            <img src="img/photo/cta-img.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-two-columns__text-content">
+                    <div class="content-two-columns__text-content-title-slot">
+                        <div class="cta__title title-2">
+                            <div class="cta__title-mob">
+                                <span class="row-1">
+                                    ready to
+                                </span>
+                                <span class="row-2">
+                                    get started?
+                                </span>
+                            </div>
+                            <div class="cta__title-desk">
+                                <span class="row-1">
+                                    ready to get
+                                </span>
+                                <span class="row-2">
+                                    started?
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-two-columns__text-content-text-slot">
+                        <div class="text-content last-no-margin">
+                            <p>
+                                Magoom is a digital marketing agency with a small-scale, big impact. We're all about creating bespoke digital efforts towards your business that spotlight your unique brand, ensuring quality over quantity every time.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="cta__btn content-two-columns__text-content-btn-slot">
+                        <a href="#" class="btn-default btn-default--primary">
+                            Book a call
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="cta__decor">
+                <img src="img/icons/decor-icon-4.svg" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+	</main>
+
+	<!-- == FOOTER ================== -->
+	<footer class="footer">
+    <div class="footer__inner">
+        <div class="container">
+            <div class="footer__row-1">
+                <div class="footer__nav-wrap">
+                    <div class="footer__nav-col footer__nav-col-1">
+                        <a href="#" class="footer__nav-title">Services</a>
+                        <ul class="footer__nav-list footer__nav-list--cols-2">
+                            <li>
+                                <a href="#">
+                                    SEO Consulting
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    PPC Consulting
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Content Marketing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Web Development
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Website Migration
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    UX & CRO
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Sales Software (CRM)
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Digital PR
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Online Reputation management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Case studies
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-col footer__nav-col-2">
+                        <a href="#" class="footer__nav-title">Company</a>
+                        <ul class="footer__nav-list">
+                            <li>
+                                <a href="#">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Case Studies
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Contacts
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__nav-col footer__nav-col-3">
+                        
+                        <a href="#" class="footer__nav-title">Legal</a>
+                        <ul class="footer__nav-list">
+                            <li>
+                                <a href="#">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Terms and conditions
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="social">
+                            <li>
+                                <a href="#">
+                                    <img class="img-svg" src="img/icons/linkeding.svg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="img-svg" src="img/icons/letter.svg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="img-svg" src="img/icons/phone.svg" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer__logo">
+                    <img src="img/logo/footer-logo.svg" alt="">
+                </div>
+            </div>
+            <div class="footer__row-2">
+                <div class="footer__copy">
+                    © 2017-2024 Magoom (T2D3), All Rights Reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+	<!-- == // FOOTER ================== -->
+</body>
+
+</html>

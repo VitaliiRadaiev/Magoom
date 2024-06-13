@@ -1,0 +1,165 @@
+.home-reviews {
+    position: relative;
+    z-index: 1;
+
+    &.reviews {
+        @media (min-width: 0px) and (max-width: 991.98px) {
+            margin-top: -2.4rem;
+            border-radius: 2.4rem 2.4rem 0 0;
+
+            & + .home-cta {
+                background-color: var(--light-blue);
+            }
+        }
+    }
+}
+
+.reviews {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    overflow: hidden;
+
+    @media (min-width: $mq-lg) {
+        padding-top: 12rem;
+        padding-bottom: 12rem;
+    }
+
+    &__title {
+    }
+
+    &__text {
+        margin-top: 2.4rem;
+        max-width: 50.8rem;
+
+        @media (min-width: $mq-lg) {
+            margin-top: 3.2rem;
+        }
+    }
+
+    &__carousel {
+        margin-top: 4rem;
+
+        @media (min-width: $mq-lg) {
+            margin-top: 3.2rem;
+        }
+
+        & .swiper {
+            overflow: visible;
+        }
+
+        & .swiper-slide {
+            width: auto;
+            height: auto;
+
+            &:not(:last-child) {
+                padding-right: 1.2rem;
+            }
+
+            & .review-card {
+                width: 31.2rem;
+            }
+
+            @media (min-width: $mq-lg) {
+                &:not(:last-child) {
+                    padding-right: 3.2rem;
+                }
+
+                & .review-card {
+                    width: 37.2rem;
+                }
+            }
+        }
+    }
+
+    &__carousel-nav-buttons {
+        margin-top: 2.4rem;
+    }
+}
+
+.review-card {
+    height: 100%;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+
+    &__logo {
+        height: 3.8rem;
+
+        & img,
+        & svg {
+            height: auto;
+            width: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    &__author {
+        margin-top: 4rem;
+        display: flex;
+        gap: 2.4rem;
+        align-items: center;
+    }
+
+    &__author-avatar {
+        flex: 0 0 auto;
+        height: 6.4rem;
+        width: 6.4rem;
+        overflow: hidden;
+        border-radius: 999px;
+        background-color: #c1f5f5;
+
+        & img {
+            height: 100%;
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+    }
+
+    &__author-text {
+    }
+
+    &__author-name {
+    }
+
+    &__author-position {
+        & a {
+            text-decoration: underline;
+        }
+    }
+
+    &__text {
+        margin-top: 1.6rem;
+    }
+}
+
+.carousel-buttons {
+    display: flex;
+    gap: 1.6rem;
+}
+.carousel-btn {
+    flex: 0 0 auto;
+    height: 2.4rem;
+    width: 2.4rem;
+    border-radius: 999px;
+    background-color: var(--black);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+
+    @media #{$mouse-device} {
+        &:not(.swiper-button-disabled):hover {
+            background-color: var(--green);
+            color: var(--black);
+        }
+    }
+
+    &.swiper-button-disabled {
+        opacity: 0.5;
+    }
+}

@@ -1,0 +1,125 @@
+.home-cta {
+    @media (min-width: 0px) and (max-width: 991.98px) {
+        & .content-two-columns {
+            border-radius: 2.4rem 2.4rem 0 0;
+            overflow: hidden;
+        }
+
+        & .content-two-columns__text-content {
+            background-color: #fff;
+            margin-left: -2.4rem;
+            margin-right: -2.4rem;
+            padding-left: 2.4rem;
+            padding-right: 2.4rem;
+        }
+    }
+}
+.cta {
+    position: relative;
+    overflow: hidden;
+    &__inner {
+        position: relative;
+    }
+    &__img {
+        height: 56.2rem;
+
+        & img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (min-width: $mq-lg) {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &__title {
+        & span {
+            &:last-child {
+                font-style: italic;
+            }
+        }
+    }
+
+    &__title-mob {
+        display: flex;
+        flex-direction: column;
+        @media (min-width: $mq-lg) {
+            display: none;
+        }
+
+        & .row-2 {
+            margin-left: 3.1rem;
+        }
+    }
+
+    &__title-desk {
+        display: none;
+        flex-direction: column;
+
+        @media (min-width: $mq-lg) {
+            display: flex;
+        }
+
+        & .row-2 {
+            margin-left: 12.2rem;
+        }
+    }
+
+    &__btn {
+        @media (max-width: 991.98px) {
+            & .btn-default {
+                width: 100%;
+            }
+        }
+    }
+
+    &__decor {
+        height: 17.1rem;
+        position: absolute;
+        z-index: 2;
+        top: 47rem;
+        right: 2.4rem;
+
+        @media (min-width: $mq-lg) {
+            top: auto;
+            height: 24.6rem;
+            position: absolute;
+            z-index: 2;
+            bottom: 10rem;
+            right: 38.4%;
+        }
+
+        & img {
+            height: 100%;
+            width: auto;
+            display: block;
+            animation-name: handRotate;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-duration: 6s;
+            transform-origin: bottom center;
+        }
+
+        @keyframes handRotate {
+            0% {
+                transform: rotate(-20deg);
+            }
+            50% {
+                transform: rotate(20deg);
+            }
+            100% {
+                transform: rotate(-20deg);
+            }
+        }
+    }
+
+    & .content-two-columns__text-content {
+        @media (min-width: $mq-lg) {
+            flex: 0 0 43.4%
+        }
+    }
+}

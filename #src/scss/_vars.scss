@@ -1,0 +1,30 @@
+:root {
+    --white: #fff;
+	--grey-1: #f4f4f4;
+	--grey-2: #b3b3b3;
+	--grey-3: #393939;
+	--black: #08090a;
+	--blue: #5ee8e5;
+	--green: #5dc95d;
+	--purple: #9394f8;
+	--pink: #fd68ff;
+	--yellow: #fed807;
+	--light-blue: #c1f5f4;
+	--light-green: #d0fddc;
+	--light-purple: #c0c1ff;
+	--light-pink: #fed9ff;
+	--light-yellow: #fff4b7;
+}
+
+$mainFontFamily: 'Inter', sans-serif;
+$secondFontFamily: "Anybody", sans-serif;
+
+
+$minwidth: 320px;
+$mq-sm: 576px;
+$mq-md: 768px;
+$mq-lg: 992px;
+$mq-xl: 1200px;
+$mq-xxl: 1400px;
+$mouse-device: "(hover: hover) and (pointer: fine)";
+$touch-device: "(hover: none) and (pointer: coarse)";
