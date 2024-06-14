@@ -1,5 +1,6 @@
 .footer {
-
+    overflow: hidden;
+    
     &__inner {
         background-color: var(--black);
         color: var(--white);
@@ -9,6 +10,8 @@
 
         @media (min-width: $mq-lg) {
             border-radius: 0;
+            padding-top: 12rem;
+            padding-bottom: 12rem;
         }
 
         & a {
@@ -17,6 +20,12 @@
     }
 
     &__row-1 {
+        
+        @media (min-width: $mq-lg) {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 4rem;
+        }
     }
 
     &__nav-wrap {
@@ -25,22 +34,51 @@
         gap: 4rem 2rem;
         margin: 0 auto;
         max-width: 31.2rem;
+
+
+        @media (min-width: $mq-lg) {
+            //grid-template-columns: minmax(auto, 16.5rem) 1fr minmax(auto, 16.5rem);
+            display: flex;
+            flex: 1 1 auto;
+            max-width: 77.4rem;
+            margin-left: auto;
+            margin-right: 0;
+            gap: 5rem;
+        }
     }
 
     &__nav-col {
+        
     }
 
     &__nav-col-1 {
         grid-column:  span 2;
+
+        @media (min-width: $mq-lg) {
+            grid-column: auto;
+            flex: 1 1 auto;
+        }
     }
 
     &__nav-col-2 {
+        @media (min-width: $mq-lg) {
+            order: -1;
+            flex: 0 0 auto;
+        }
     }
 
     &__nav-col-3 {
 
+        @media (min-width: $mq-lg) {
+            flex: 0 0 auto;
+        }
+
         & .social  {
             margin-top: 2.4rem;
+
+            @media (min-width: $mq-lg) {
+                margin-top: 8.5rem;
+            }
         }
     }
 
@@ -48,6 +86,10 @@
         font-size: 1.6rem;
         line-height: 1.37em;
         font-weight: 700;
+
+        @media (min-width: $mq-lg) {
+            line-height: 1.5em;
+        }
     }
 
     &__nav-list {
@@ -58,6 +100,24 @@
         font-weight: 400;
         font-size: 1.4rem;
         line-height: 1.57em;
+
+        @media (min-width: $mq-lg) {
+            font-size: 1.6rem;
+            line-height: 1.69em;
+            margin-top: 2.4rem;
+            gap: 1.2rem 3.2rem;
+        }
+
+        @media #{$mouse-device} {
+            & a {
+                &:hover {
+                    text-decoration: underline;
+                    color: var(--grey-2) ;
+                }
+            }
+        }
+
+
     
     }
 
@@ -65,6 +125,10 @@
 
     &__nav-list--cols-2 {
         grid-template-columns: 1fr 1fr;
+
+        @media (min-width: $mq-lg) {
+            grid-template-columns: auto auto;
+        }
 
         & .row-span-2 {
             grid-row: span 2;
@@ -77,8 +141,15 @@
     &__logo {
         margin-top: 4rem;
         display: flex;
-        align-items: center;
+        
         justify-content: center;
+
+
+        @media (min-width: $mq-lg) {
+            margin-top: 0;
+            flex: 0 0 auto;
+            align-items: flex-start;
+        }
 
         & img {
             width: 20.8rem;
@@ -89,6 +160,13 @@
 
     &__row-2 {
         margin-top: 4rem;
+
+        @media (min-width: $mq-lg) {
+            margin-top: 5.8rem;
+            border-top: 1px solid var(--grey-1);
+            padding-top: 1.6rem;
+            opacity: 0.4;
+        }
     }
 
     &__copy {
@@ -97,6 +175,11 @@
         font-size: 1.2rem;
         line-height: 1.5em;
         color: var(--grey-2);
+
+        @media (min-width: $mq-lg) {
+            text-align: start;
+            color: var(--grey-1);
+        }
     }
 }
 
@@ -115,6 +198,11 @@
         height: 2.4rem;
         width: auto;
         display: block;
+
+        @media (min-width: $mq-lg) {
+            height: 3.2rem;
+            gap: 1.2rem;
+        }
     }
 }
 .img-svg {

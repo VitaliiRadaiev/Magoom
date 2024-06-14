@@ -653,7 +653,7 @@ function initParallax() {
                         trigger: el,
                         start: 'top bottom',
                         end: 'top top',
-                        scrub: 0.5,
+                        scrub: true,
                     }
                 }
             );
