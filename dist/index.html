@@ -15,12 +15,23 @@
         let element = document.querySelector('html');
         if (element) {
             const setFontSize = () => {
-                let value = 10 / 1440 * element.clientWidth;
+                let baseWidth = 1440;
+                let baseFontSize = 10;
+                let screenWidth = element.clientWidth;
+                let value;
+
+                if (screenWidth <= baseWidth) {
+                    let scaleFactor = 10; 
+                    value = baseFontSize + (screenWidth - baseWidth) * scaleFactor / baseWidth;
+                } else {
+                    let scaleFactor = 2.5; 
+                    value = baseFontSize + (screenWidth - baseWidth) * scaleFactor / baseWidth;
+                }
+
                 element.style.fontSize = value + 'px';
             }
 
             setFontSize();
-
             window.addEventListener('resize', setFontSize);
         }
     </script>
