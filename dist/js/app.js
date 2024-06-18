@@ -640,14 +640,13 @@ function initCssVariableHeight() {
 }
 
 function initParallax() {
-    const elements = document.querySelectorAll('[data-speed]');
-    if(document.documentElement.clientWidth >= 992) {
+    const elements = document.querySelectorAll('[data-scroll-parallax]');
+    if (document.documentElement.clientWidth >= 992) {
         elements.forEach(el => {
-            const speed = el.getAttribute('data-speed');
             gsap.fromTo(el,
-                { y: 100 },
+                { y: Number(el.getAttribute('data-start-y'))},
                 {
-                    y: -100 * speed,
+                    y: Number(el.getAttribute('data-end-y')) ,
                     ease: "none",
                     scrollTrigger: {
                         trigger: el,
@@ -659,6 +658,25 @@ function initParallax() {
             );
         })
     }
+}
+
+function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function (...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
 };
 
 
@@ -814,64 +832,64 @@ window.addEventListener("DOMContentLoaded", () => {
         })
     }
 }
-	let paintingPreview = document.querySelector('[data-home-intro]');
-if (paintingPreview) {
+	// let paintingPreview = document.querySelector('[data-home-intro]');
+// if (paintingPreview) {
 
-    //let myPanel = paintingPreview.querySelector('.home-intro__row-1');
-    let myPanel = paintingPreview;
-    let subpanel = paintingPreview.querySelector('.home-intro__title--desk');
-    let parent = paintingPreview;
+//     //let myPanel = paintingPreview.querySelector('.home-intro__row-1');
+//     let myPanel = paintingPreview;
+//     let subpanel = paintingPreview.querySelector('.home-intro__title--desk');
+//     let parent = paintingPreview;
 
-    myPanel.onmousemove = transformPanel;
-    myPanel.onmouseenter = handleMouseEnter;
-    myPanel.onmouseleave = handleMouseLeave;
+//     myPanel.onmousemove = transformPanel;
+//     myPanel.onmouseenter = handleMouseEnter;
+//     myPanel.onmouseleave = handleMouseLeave;
 
-    let mouseX, mouseY;
+//     let mouseX, mouseY;
 
-    let transformAmount = 2;
+//     let transformAmount = 2;
 
-    function transformPanel(mouseEvent) {
-        mouseX = mouseEvent.pageX;
-        mouseY = mouseEvent.pageY;
+//     function transformPanel(mouseEvent) {
+//         mouseX = mouseEvent.pageX;
+//         mouseY = mouseEvent.pageY;
 
-        const centerX = myPanel.offsetLeft + myPanel.clientWidth / 2;
-        const centerY = myPanel.offsetTop + myPanel.clientHeight / 2;
+//         const centerX = myPanel.offsetLeft + myPanel.clientWidth / 2;
+//         const centerY = myPanel.offsetTop + myPanel.clientHeight / 2;
 
-        const percentX = (mouseX - centerX) / (myPanel.clientWidth / 2);
-        const percentY = -((mouseY - centerY) / (myPanel.clientHeight / 2));
+//         const percentX = (mouseX - centerX) / (myPanel.clientWidth / 2);
+//         const percentY = -((mouseY - centerY) / (myPanel.clientHeight / 2));
 
-        //subpanel.style.transform = "perspective(400px) rotateY(" + percentX * transformAmount + "deg) rotateX(" + percentY * transformAmount + "deg)";
-        gsap.to(subpanel, 1, {
-            transformPerspective: 400,
-            rotateY: percentX * transformAmount,
-            rotateX: percentY * transformAmount,
-        });
-    }
+//         //subpanel.style.transform = "perspective(400px) rotateY(" + percentX * transformAmount + "deg) rotateX(" + percentY * transformAmount + "deg)";
+//         gsap.to(subpanel, 1, {
+//             transformPerspective: 400,
+//             rotateY: percentX * transformAmount,
+//             rotateX: percentY * transformAmount,
+//         });
+//     }
 
-    function handleMouseEnter() {
-        parent.classList.add('hover');
+//     function handleMouseEnter() {
+//         parent.classList.add('hover');
 
-        setTimeout(() => {
-            subpanel.style.transition = "";
-        }, 100);
-        //subpanel.style.transition = "transform 0.1s";
-    }
+//         setTimeout(() => {
+//             subpanel.style.transition = "";
+//         }, 100);
+//         //subpanel.style.transition = "transform 0.1s";
+//     }
 
-    function handleMouseLeave() {
-        parent.classList.remove('hover');
-        //subpanel.style.transition = "transform 0.1s";
-        setTimeout(() => {
-            subpanel.style.transition = "";
-        }, 100);
+//     function handleMouseLeave() {
+//         parent.classList.remove('hover');
+//         //subpanel.style.transition = "transform 0.1s";
+//         setTimeout(() => {
+//             subpanel.style.transition = "";
+//         }, 100);
 
-        //subpanel.style.transform = "perspective(400px) rotateY(0deg) rotateX(0deg)";
-        gsap.to(subpanel, 1, {
-            transformPerspective: 400,
-            rotateY: 0,
-            rotateX: 0,
-        });
-    }
-}
+//         //subpanel.style.transform = "perspective(400px) rotateY(0deg) rotateX(0deg)";
+//         gsap.to(subpanel, 1, {
+//             transformPerspective: 400,
+//             rotateY: 0,
+//             rotateX: 0,
+//         });
+//     }
+// }
 	
 	{
     const reviewsCarousel = document.querySelectorAll('[data-slider="reviews-carousel"]');
@@ -889,37 +907,37 @@ if (paintingPreview) {
         });
     })
 }
-	{
-    const footer = document.querySelector('[data-footer]');
-    if (footer) {
-        const transformWrapper = footer.querySelector('.footer__transform-wrapper');
-        if (transformWrapper && document.documentElement.clientWidth >= 992)  {
-            gsap.set(transformWrapper, { yPercent: -50 })
+	// {
+//     const footer = document.querySelector('[data-footer]');
+//     if (footer) {
+//         const transformWrapper = footer.querySelector('.footer__transform-wrapper');
+//         if (transformWrapper && document.documentElement.clientWidth >= 992)  {
+//             gsap.set(transformWrapper, { yPercent: -50 })
     
-            const uncover = gsap.timeline({ paused: true })
+//             const uncover = gsap.timeline({ paused: true })
     
-            uncover.to(transformWrapper, { yPercent: 0, ease: 'none' });
+//             uncover.to(transformWrapper, { yPercent: 0, ease: 'none' });
     
-            const end = document.documentElement.clientWidth < 992
-                ? 'bottom 10%'
-                : `bottom ${document.documentElement.clientHeight - transformWrapper.clientHeight}`;
+//             const end = document.documentElement.clientWidth < 992
+//                 ? 'bottom 10%'
+//                 : `bottom ${document.documentElement.clientHeight - transformWrapper.clientHeight}`;
     
-            ScrollTrigger.create({
-                trigger: footer.previousElementSibling,
-                start: 'bottom bottom',
-                end: end,
-                animation: uncover,
-                scrub: true,
-                //markers: {startColor: "white", endColor: "white", fontSize: "18px", fontWeight: "bold", indent: 20}
-            })
+//             ScrollTrigger.create({
+//                 trigger: footer.previousElementSibling,
+//                 start: 'bottom bottom',
+//                 end: end,
+//                 animation: uncover,
+//                 scrub: true,
+//                 //markers: {startColor: "white", endColor: "white", fontSize: "18px", fontWeight: "bold", indent: 20}
+//             })
     
-            window.addEventListener('resize', () => {
-                ScrollTrigger.update();
-            })
+//             window.addEventListener('resize', () => {
+//                 ScrollTrigger.update();
+//             })
 
-        }
-    }
-}
+//         }
+//     }
+// }
 	// ==== // sections =====================================================
 
 	document.body.classList.add('page-loaded');

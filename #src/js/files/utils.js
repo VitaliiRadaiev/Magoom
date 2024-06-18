@@ -640,14 +640,13 @@ function initCssVariableHeight() {
 }
 
 function initParallax() {
-    const elements = document.querySelectorAll('[data-speed]');
-    if(document.documentElement.clientWidth >= 992) {
+    const elements = document.querySelectorAll('[data-scroll-parallax]');
+    if (document.documentElement.clientWidth >= 992) {
         elements.forEach(el => {
-            const speed = el.getAttribute('data-speed');
             gsap.fromTo(el,
-                { y: 100 },
+                { y: Number(el.getAttribute('data-start-y'))},
                 {
-                    y: -100 * speed,
+                    y: Number(el.getAttribute('data-end-y')) ,
                     ease: "none",
                     scrollTrigger: {
                         trigger: el,
@@ -659,4 +658,23 @@ function initParallax() {
             );
         })
     }
+}
+
+function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function (...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
 }
