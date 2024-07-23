@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Content</title>
+    <style>
+        p,
+        h2 {
+            font-family: 'Conv_Lato-Regular', sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+            color: #595959;
+            margin-left: 40px;
+        }
+
+        li {
+            list-style-type: none;
+            counter-increment: li;
+            position: relative;
+        }
+
+        ol li::before {
+            content: counter(li);
+            display: inline-block;
+            width: 10px;
+            margin-right: 8px;
+            margin-left: -17px;
+            position: absolute;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 24px;
+            top: 3px;
+            left: -10px;
+            color: #595959;
+            font-family: 'Conv_Lato-Regular', sans-serif;
+        }
+
+        li a {
+            text-decoration: none;
+            font-family: 'Conv_Lato-Regular', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: #595959;
+            line-height: 30px;
+        }
+
+        li a:hover {
+            color: #ff3448;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Content:</h2>
+    <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="service-seo.html">Seo Consulting</a></li>
+        <li><a href="service-ppc.html">Ppc Consulting</a></li>
+        <li><a href="service-development.html">Web Development</a></li>
+        <li><a href="service-ux.html">UX & CRO</a></li>
+        <li><a href="service-sales.html">Sales Software</a></li>
+        <li><a href="service-marketing.html"> Content Marketing</a></li>
+        <li><a href="service-migration.html">Website Migration</a></li>
+        <li><a href="service-management.html">Online Reputation Management</a></li>
+        <li><a href="service-pr.html">Digital PR</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="case-studies-single.html">Case Studies Single</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+        <li><a href="thank-you.html">Thank You</a></li>
+        <li><a href="not-found.html">Not Found</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+    </ol>
+</body>
+
+</html>
